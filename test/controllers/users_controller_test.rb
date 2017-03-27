@@ -46,6 +46,14 @@ test "should redirect edit when logged in as wrong user" do
     end
     assert_redirected_to root_url
   end
+    test "should redirect following when not logged in" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
 
+  test "should redirect followers when not logged in" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
 
 end
